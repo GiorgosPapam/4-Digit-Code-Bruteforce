@@ -1,5 +1,10 @@
 This code is designed to automatically attempt to type a series of numerical combinations as passwords using the PyAutoGUI and Pyperclip libraries. Here's a brief description of what each part of the code does:
 
+  Packages:
+
+      • pip install pyautogui
+      • pip install pyperclip
+
   Imports:
 
       • pyautogui: Used for automating mouse and keyboard actions.
@@ -22,5 +27,6 @@ This code is designed to automatically attempt to type a series of numerical com
             • Copies the content of the text field to the clipboard.
             • Checks if the clipboard content matches the combination.
             • If the correct code is identified, it prints the code and stops further attempts.
+
 
 The process ensures that it tries each possible combination and checks it by comparing the clipboard content to determine if it is the correct password.
