@@ -1,5 +1,6 @@
 import pyautogui
 import pyperclip
+import time
 
 # Function to check if clipboard content is equal to a number
 def is_clipboard_same_as_number(number):
@@ -10,21 +11,34 @@ def is_clipboard_same_as_number(number):
         print("Error:", e)
         return False
 
-pyautogui.sleep(5)
 
-#print(pyautogui.position()) pyautogui.sleep(55)
-pyautogui.moveTo(-359, 457)
-pyautogui.sleep(1)
-pyautogui.click()
-pyautogui.sleep(1)
+def get_seconds():
+    while True:
+        time = input("Please select the seconds that you want the program to auto type the Passwords: ")
+        if time.isdigit():
+            return int(time)
+        else:
+            print("Invalid input. Please enter a number.")
+seconds = get_seconds()
 
+countdown = 5
+while countdown > 0:
+    print(f"Starting in {countdown} seconds...","\r")
+    time.sleep(1)
+    countdown -= 1
+print("Starting now!")
+
+
+
+
+found = 0
 for i in range(10):
     for y in range(10):
         for z in range(10):
             for x in range(10):
                 if found == 1:
                     break
-                pyautogui.sleep(2)
+                pyautogui.sleep(seconds)
                 pyautogui.click()
                 pyautogui.hotkey('ctrl', 'a')
                 pyautogui.hotkey('Del')
@@ -34,7 +48,7 @@ for i in range(10):
                 pyautogui.hotkey('ctrl', 'c')  # Copy to clipboard
                 pyautogui.press('Enter')
                 if is_clipboard_same_as_number(combination):
-                   kati  = 0
+                   found  = 0
                 else:
                     print(f"The Correct code is : ",i,y,z,x-1)
                     found = 1
